@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #FAF7F2;
+    color: #3A3028;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  /* ── Scroll reveal ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.85s cubic-bezier(0.22,1,0.36,1), transform 0.85s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── Intro overlay ── */
+  .intro-line { animation: lineGrow 1s ease forwards 0.3s; height: 0; width: 1px; background: #B8945A; }
+  .intro-logo { animation: fadeUp 1s ease forwards 0.8s; opacity: 0; }
+  .intro-sub  { animation: fadeUp 1s ease forwards 1.2s; opacity: 0; }
+  .intro-bar  { animation: barGrow 2.4s cubic-bezier(0.77,0,0.18,1) forwards 0.2s; width: 0; height: 1px; background: #B8945A; }
+
+  /* ── Hero entrance stagger ── */
+  .hero-badge   { animation: fadeSlideDown 0.8s cubic-bezier(0.22,1,0.36,1) forwards; animation-delay: 2.5s; opacity: 0; }
+  .hero-h1-line1 { animation: fadeSlideUp  1.0s cubic-bezier(0.22,1,0.36,1) forwards; animation-delay: 2.65s; opacity: 0; }
+  .hero-h1-line2 { animation: fadeSlideUp  1.0s cubic-bezier(0.22,1,0.36,1) forwards; animation-delay: 2.82s; opacity: 0; }
+  .hero-h1-line3 { animation: fadeSlideUp  1.0s cubic-bezier(0.22,1,0.36,1) forwards; animation-delay: 2.99s; opacity: 0; }
+  .hero-sub      { animation: fadeUp       0.9s cubic-bezier(0.22,1,0.36,1) forwards; animation-delay: 3.15s; opacity: 0; }
+  .hero-ctas     { animation: fadeUp       0.9s cubic-bezier(0.22,1,0.36,1) forwards; animation-delay: 3.35s; opacity: 0; }
+
+  /* ── Gold shimmer on headline ── */
+  .hero-gradient-text {
+    background: linear-gradient(110deg, #B8945A 0%, #F0CC7A 35%, #E8B860 55%, #B8945A 100%);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 5s linear infinite 4s;
+  }
+
+  /* ── Slow-breathing glow orbs ── */
+  .orb-pulse { animation: orbPulse 8s ease-in-out infinite; }
+  .orb-pulse-2 { animation: orbPulse 11s ease-in-out infinite reverse; }
+  .orb-pulse-3 { animation: orbPulse 14s ease-in-out infinite 2s; }
+
+  /* ── Film grain overlay ── */
+  .hero-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+  }
+
+  /* ── Edge vignette ── */
+  .hero-vignette {
+    background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 30%, rgba(0,0,0,0.65) 100%);
+  }
+
+  /* ── Glassmorphism pill ── */
+  .glass-pill {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* ── Ping dot ── */
+  .ping-dot { animation: pingDot 2.4s ease-in-out infinite; }
+}
+
+/* ── Keyframes ── */
+@keyframes lineGrow     { to { height: 80px; } }
+@keyframes barGrow      { to { width: 100%; } }
+@keyframes fadeUp       { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeSlideUp  { from { opacity: 0; transform: translateY(48px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeSlideDown{ from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes shimmer      { to { background-position: 220% center; } }
+@keyframes orbPulse     { 0%,100% { opacity: 0.18; transform: scale(1) translate(0,0); } 33% { opacity: 0.30; transform: scale(1.12) translate(2%,1%); } 66% { opacity: 0.22; transform: scale(0.95) translate(-1%,2%); } }
+@keyframes pingDot      { 0%,100% { opacity:1; transform: scale(1); } 50% { opacity:0.3; transform: scale(1.8); } }
