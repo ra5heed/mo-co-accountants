@@ -3,6 +3,9 @@ export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      screens: {
+              xs: '375px',
+     },
       colors: {
         gold: {
           DEFAULT: '#B8945A',
