@@ -207,7 +207,7 @@ export default function HeroSection() {
           <div className="hero-h1-line1">
             <h1
               className="font-sans font-black text-white leading-[0.90] tracking-[-0.04em] uppercase"
-              style={{ fontSize: 'clamp(4rem, 10.5vw, 10.5rem)' }}
+              style={{ fontSize: 'clamp(4rem, 10.5vw, 10.5rem))' }}
             >
               Creative
             </h1>
@@ -215,7 +215,7 @@ export default function HeroSection() {
           <div className="hero-h1-line2 overflow-hidden">
             <h1
               className="hero-gradient-text font-sans font-black leading-[0.90] tracking-[-0.04em] uppercase"
-              style={{ fontSize: 'clamp(4rem, 10.5vw, 10.5rem)' }}
+              style={{ fontSize: 'clamp(3rem, 10vw, 10rem)' }}
             >
               Finance
             </h1>
@@ -223,7 +223,7 @@ export default function HeroSection() {
           <div className="hero-h1-line3 overflow-hidden">
             <h1
               className="font-sans font-black text-white/85 leading-[0.90] tracking-[-0.04em] uppercase"
-              style={{ fontSize: 'clamp(4rem, 10.5vw, 10.5rem)' }}
+              style={{ fontSize: 'clamp(3rem, 9vw, 9rem)' }}
             >
               Leadership.
             </h1>

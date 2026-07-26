@@ -114,7 +114,12 @@ export default function Navbar() {
           onClick={() => scrollTo('#contact')}
           className="self-start mt-2"
         >
-          Get in Touch ↗
+          <span
+              className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+              style={{ background: 'linear-gradient(120deg, #B8945A, #E0C07A, #B8945A)' }}
+            />
+            <span className="relative z-10 group-hover:text-navy transition-colors duration-300"></span>
+          Get in Touch 
         </Button>
       </div>
     </nav>
